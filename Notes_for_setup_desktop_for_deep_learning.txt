@@ -25,3 +25,463 @@ I installed the driver for GTX 1070 in the following way:
    sudo apt-get update
    sudo apt-get install nvidia-367
    sudo reboot
+
+5. After I installed CUDA, I need to add the directory for executive file and libraries to PATH and LD_LIBRARY_PATH, my vim editor does not work as expected. (The backspace, arrow up, down keys do not work)
+   Solution:
+   create a .vimrc file in your home directory
+   type the following configuration inside:
+      set nocompatible
+      set backspace=indent,eol,start
+      set nubmer
+
+
+6. How to solve gcc compabiltiy issue, you could change the configuration of CUDA rather than install gcc 4.9. But it is more complicated.
+
+7. The installation of cudnn:
+   After you install cuda, download the cudnn library
+   tar -zxvf cudnn-8.0-linux-x64-v5.1.tgz
+   cd cuda # The name of uncompresed foder is cuda not cunn
+   sudo cp -P /include/cudnn.h /usr/include
+   sudo cp -P /lib64/libcudnn* /usr/lib/x86_64-linux-gnu/
+   sudo chmod a+r /usr/lib/x86_64-linux-gnu/libcudnn*
+
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
+8. Test the installation using tensroflow:
+   import tensorflow as tf
+   hello = tf.constant("Hello, TensorFlow")
+   sess = tf.Session()
+   print(sess.run(hello))
