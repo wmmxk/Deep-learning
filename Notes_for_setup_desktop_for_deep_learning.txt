@@ -1,0 +1,27 @@
+1. The compability of ubuntu 16.40 with third party drivers:
+   After searching GTX 1070 Ubuntu 16.04, I found this blog is very informative except without mentioning this compability issue. (https://www.jayakumar.org/linux/gtx-1070-on-ubuntu-16-04-with-cuda-8-0-and-theano/)
+   This issue is because UEFI Secure Boot is enabled by default sind 16.04, so you need to disable Secure Boot or assign a certificate to the nvidia driver. (I chose the former solution).
+   My desktop is Msi. Go to BIOS seting by pressing "del" key when rebooting and disable the secure booting
+
+
+
+2. The compability of the gcc coming with ubuntu 16.40 with CUDA 8.0
+   It looks like the gcc is not compatible with CUDA 8.0. Since I have root right, I just install another compiler and create a symbolic link and covered the default gcc
+   sudo apt-get install gcc-4.9 g++-4.9
+   sudo ln -s  /usr/bin/gcc-4.9 /usr/bin/gcc -f
+   sudo ln -s  /usr/bin/g++-4.9 /usr/bin/g++ -f
+
+3. When installing CUDA 8.0, make sure say yes when being asked whether create symbolic link. I think that way no matter which version CUDA you installed, it will use cuda to refer the CUDA you install.
+
+4.It was said to install nvidia driver manually. (Note the 1st compability issue surfaced when I run sudo apt-get install nvidia-367. (A new window pop out saying "Your system has UEFI Secure Boot enabled. UEFI Secure Boot is not compatible with the use of third-party drivers.
+(...) Ubuntu will still be able to boot on your system but these third-party drivers will not be available for your hardware."
+
+When rebooting, I disabled the Secure boot. Otherwise, I can not log in: everytime I typed in the password for login, it immediately throws me back to the login screen.
+
+
+
+I installed the driver for GTX 1070 in the following way:
+   sudo add-apt-repository ppa:graphics-drivers/ppa
+   sudo apt-get update
+   sudo apt-get install nvidia-367
+   sudo reboot
