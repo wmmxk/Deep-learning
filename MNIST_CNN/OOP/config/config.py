@@ -1,4 +1,4 @@
-from easydict immport Easydict as edict
+from easydict import EasyDict as edict
 
 # the first layer
 cfg = edict()
@@ -10,4 +10,4 @@ cfg.TRAIN = edict()
 
 # the third layer
 cfg.DATA.NUM_CLASS = 10
-cfg.TRAIN.WEIGHT_DECAY = 0.1
+cfg.TRAIN.WEIGHT_DECAY = 0.001

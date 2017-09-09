@@ -1,0 +1,3 @@
+tf1.0: https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp27-none-linux_x86_64.whl
+
+create a virtural environment: conda create -n tf1.0 anaconda

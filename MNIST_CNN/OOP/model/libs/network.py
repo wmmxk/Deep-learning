@@ -7,9 +7,10 @@ def layer(op):
         name = kwargs.setdefault('name','default_layer_name')
         layer_input = self.inputs[0]
         layer_output = op(self,layer_input, *args, **kwargs)
-
+        print('layer_name',name)
         self.layers[name] = layer_output
-        self.feed(layer_output)
+#        print("layers:,",self.layers)
+        self.feed(name)
         return self
     return layer_decorated
 
@@ -30,11 +31,12 @@ class Network(object):
     def setup(self):
         raise NotImplementedError('Must be subclassed')
 
-    def feed(self,*args)
+    def feed(self,*args):
         self.inputs = []
-            for layer in args:
-                layer = self.layers[layer]
-                self.inputs.append(layer)
+        for layer in args:
+            layer = self.layers[layer]
+            print(layer)
+            self.inputs.append(layer)
 
         return self
 
@@ -53,8 +55,8 @@ class Network(object):
         with tf.variable_scope(name) as scope:
             init_weights = tf.contrib.layers.variance_scaling_initializer(factor = 0.1,mode ='FAN_AVG', uniform = False)
             init_biases = tf.constant_initializer(0.0)
-            kernel = tf.get_variable('weights',[k_h,k_w,c_i,c_o], init_weights,trainable,regularizer = self.l2_regularizer(cfg.TRAIN.WEIGHT_DECAY))
-            biases = tf.get_variable('biases',[c_o],init_biases, trainable)
+            kernel = tf.get_variable('weights',[k_h,k_w,c_i,c_o], initializer = init_weights,trainable = trainable,regularizer = self.l2_regularizer(cfg.TRAIN.WEIGHT_DECAY))
+            biases = tf.get_variable('biases',[c_o],initializer = init_biases,trainable = trainable)
 
             conv = convolve(input,kernel)
             bias = tf.nn.bias_add(conv,biases)
@@ -62,7 +64,7 @@ class Network(object):
             return tf.nn.relu(bias)
 
     @layer
-    def max_pool(self, input, k_h, k_w, s_h, s_w, name, padding='SAME'):
+    def max_pool(self, input, k_h, k_w, s_h, s_w, name, padding='SAMEr'):
         return tf.nn.max_pool(input,ksize= [1,k_h,k_w,1], strides = [1,s_h,s_w,1], padding=padding,name=name)
 
 
@@ -79,8 +81,8 @@ class Network(object):
             init_weights = tf.truncated_normal_initializer(0,0,stddev = 0.001)
             init_biases = tf.constant_initializer(0.0)
 
-            weights = tf.get_variable('weights',[dim,num_out], init_weights, trainable, regularizer= self.l2_regularizer(cfg.TRAIN.WEIGHT_DECAY))
-            biases = tf.get_variable('biases',[num_out],init_biases, trainable)
+            weights = tf.get_variable('weights',[dim,num_out], initializer= init_weights, trainable= trainable, regularizer= self.l2_regularizer(cfg.TRAIN.WEIGHT_DECAY))
+            biases = tf.get_variable('biases',[num_out],initializer = init_biases, trainable = trainable)
 
             op = tf.nn.relu_layer if relu else tf.nn.xw_plus_b
             return op(feed_in,weights, biases,name=scope.name)
@@ -93,9 +95,18 @@ class Network(object):
     def softmax(self, input, name):
         return tf.nn.softmax(input,name=name)
 
-   # build loss
-   def build_loss(self):
+    # build loss
+    def build_loss(self):
        cls_prob = self.get_output('cls_prob')
        labels = self.labels
        cross_entropy_n = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=cls_prob, labels = labels)
        return tf.reduce_mean(cross_entropy_n)
+
+    # l2 regularizer
+    def l2_regularizer(self,weight_decay = 0.0005, scope = None):
+        def regularizer(tensor):
+            with tf.name_scope(scope, default_name = 'l2_regularizer', values = [tensor]):
+                l2_weight = tf.convert_to_tensor(weight_decay,dtype = tensor.dtype.base_dtype, name = 'weight_decay')
+                return tf.multiply(l2_weight, tf.nn.l2_loss(tensor),name='value')
+        return regularizer
+
