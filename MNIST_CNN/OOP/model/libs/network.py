@@ -34,7 +34,7 @@ class Network(object):
         self.inputs = []
         for layer in args:
             layer = self.layers[layer]
-            #print(layer) # for debug
+            print(layer) # for debug
             self.inputs.append(layer)
 
         return self
@@ -42,7 +42,18 @@ class Network(object):
     def get_output(self,layer):
         return self.layers[layer]
 
-    
+    def load_variable(self,weights_path,session):
+        weights_dict = np.load(weights_path).item()
+        for key in weights_dict:
+            with tf.variable_scope(key, reuse=True):
+                for subkey in weights_dict[key]:
+                    try:
+                        var = tf.get_variable(subkey)
+                        session.run(var.assign(weights_dict[key][subkey]))
+                        print("assign pretrained weight" + subkey + "to" + key)
+                    except ValueError:
+                        print("ignore"+key)
+
     # layer components:
     @layer
     def conv(self,input,k_h,k_w,c_o,s_h,s_w,name,trainable = True):
@@ -53,14 +64,18 @@ class Network(object):
 
         with tf.variable_scope(name) as scope:
             init_weights = tf.contrib.layers.variance_scaling_initializer(factor = 0.1,mode ='FAN_AVG', uniform = False)
-            init_biases = tf.constant_initializer(0.0)
+            init_biases = tf.constant_initializer(np.random.rand(c_o))
+
             kernel = tf.get_variable('weights',[k_h,k_w,c_i,c_o], initializer = init_weights,trainable = trainable,regularizer = self.l2_regularizer(cfg.TRAIN.WEIGHT_DECAY))
-            biases = tf.get_variable('biases',[c_o],initializer = init_biases,trainable = trainable)
+
+            biases = tf.get_variable('biases_con',[c_o],trainable = trainable,dtype = tf.float32)
+
+           # biases = tf.Variable(tf.zeros([c_o], dtype=tf.float32))
 
             conv = convolve(input,kernel)
-            bias = tf.nn.bias_add(conv,biases)
 
-            return tf.nn.relu(bias)
+            relu = tf.nn.relu(tf.nn.bias_add(conv, biases))
+            return relu
 
     @layer
     def max_pool(self, input, k_h, k_w, s_h, s_w, name, padding='SAMEr'):
@@ -96,9 +111,9 @@ class Network(object):
 
     # build loss
     def build_loss(self):
-       cls_prob = self.get_output('cls_prob')
+       cls_score = self.get_output('cls_score')
        labels = self.labels
-       cross_entropy_n = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=cls_prob, labels = labels)
+       cross_entropy_n = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=cls_score, labels = labels)
        return tf.reduce_mean(cross_entropy_n)
 
     # l2 regularizer

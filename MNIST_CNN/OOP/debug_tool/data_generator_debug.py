@@ -8,4 +8,5 @@ if debug:
     images,labels = next(tr_generator)
     print("images shape:",images.shape)
     print("generator works")
-
+    print("labels",labels)
+    print(type(images))
