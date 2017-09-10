@@ -6,7 +6,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 #debug = args[1]
 debug = False
 
-mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
+mnist = input_data.read_data_sets('MNIST_data', one_hot = False)
 
 images_tr = np.reshape(mnist.train.images,(-1,28,28,1))
 labels_tr = mnist.train.labels
@@ -20,7 +20,7 @@ def generator(images,labels,batch_size):
     while True:
         for start in range(0,len(labels),batch_size):
             end = min(start + batch_size, len(labels))
-            yield images[start:end,:,:,:], labels[start:end,:]
+            yield images[start:end,:,:,:], labels[start:end]
 
 
 

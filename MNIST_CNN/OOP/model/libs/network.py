@@ -7,9 +7,8 @@ def layer(op):
         name = kwargs.setdefault('name','default_layer_name')
         layer_input = self.inputs[0]
         layer_output = op(self,layer_input, *args, **kwargs)
-        print('layer_name',name)
+#        print('layer_name:',name)
         self.layers[name] = layer_output
-#        print("layers:,",self.layers)
         self.feed(name)
         return self
     return layer_decorated
@@ -35,7 +34,7 @@ class Network(object):
         self.inputs = []
         for layer in args:
             layer = self.layers[layer]
-            print(layer)
+            #print(layer) # for debug
             self.inputs.append(layer)
 
         return self
@@ -78,7 +77,7 @@ class Network(object):
             else:
                 feed_in, dim = (input, int(input_shape[-1]))
 
-            init_weights = tf.truncated_normal_initializer(0,0,stddev = 0.001)
+            init_weights = tf.truncated_normal_initializer(0.0,stddev = 0.001)
             init_biases = tf.constant_initializer(0.0)
 
             weights = tf.get_variable('weights',[dim,num_out], initializer= init_weights, trainable= trainable, regularizer= self.l2_regularizer(cfg.TRAIN.WEIGHT_DECAY))

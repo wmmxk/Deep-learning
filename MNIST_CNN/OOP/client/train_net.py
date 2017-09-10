@@ -1,11 +1,18 @@
 from _init_paths import *
 from data.data_generator import *
+from model.VGGnet import *
+from config.config import cfg
+from helper.for_training import get_accuracy
 
-debug = True
+import tensorflow as tf
 
-if debug:
-    tr_generator = generator(images_tr,labels_tr,3)
-    images,labels = next(tr_generator)
-    print("images shape:",images.shape)
-    print("generator works")
+net = VGGnet()
+loss = net.build_loss()
 
+opt = tf.train.AdamOptimizer(0.01)
+global_step = tf.Variable(0, trainable=False)
+
+train_op = opt.minimize(loss, global_step = global_step)
+
+sess = 
+        
