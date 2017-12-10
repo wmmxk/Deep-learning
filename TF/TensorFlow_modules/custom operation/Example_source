@@ -1,6 +1,0 @@
-https://www.tensorflow.org/extend/adding_an_op
-
-
-https://github.com/tensorflow/tensorflow/issues/1569
-use the following command to compile your c++ code: the command in the tutorial does not work
-g++ -std=c++11 -shared zero_out.cc -o zero_out.so -I $TF_INC -fPIC -D_GLIBCXX_USE_CXX11_ABI=0
