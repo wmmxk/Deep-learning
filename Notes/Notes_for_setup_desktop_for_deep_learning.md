@@ -49,3 +49,6 @@ I installed the driver for GTX 1070 in the following way:
    sudo cp -P /lib64/libcudnn* /usr/lib/x86_64-linux-gnu/
    sudo chmod a+r /usr/lib/x86_64-linux-gnu/libcudnn*
 
+8. After the driver, cuda, cudnn, vi are setup, then I installed anaconda and pycharm.
+   For pycharm.sh, I created an alias for it by adding this line in the .bashrc file:
+   alias pycharm="/home/wxk/software/pycharm-edu-2019.1/bin/pycharm.sh"
