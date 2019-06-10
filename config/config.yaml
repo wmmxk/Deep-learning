@@ -1,0 +1,6 @@
+paths:
+  DATA_DIR: "../data"
+  fig_paths:
+    FIG_DIR: "../out_fig"
+history:
+  CHUNK_T: 8
