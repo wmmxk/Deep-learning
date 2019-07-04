@@ -28,6 +28,7 @@ I installed the driver for GTX 1070 in the following way:
    sudo apt-get update
    sudo apt-get install nvidia-367
    sudo reboot
+   to check which driver is compatible to this system run ubuntu-drivers list
 
 5. After I installed CUDA, I need to add the directory for executive file and libraries to PATH and LD_LIBRARY_PATH, my vim editor does not work as expected. (The backspace, arrow up, down keys do not work)
    Solution:
