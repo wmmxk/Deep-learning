@@ -36,8 +36,17 @@ I installed the driver for GTX 1070 in the following way:
       set nocompatible
       set backspace=indent,eol,start
       set nubmer
+      
+     
 
 5.2. Install cuda9.0 following [this tutorial](https://gist.github.com/Mahedi-61/2a2f1579d4271717d421065168ce6a73)
+
+5.3 Install cuda10: follow this [link](https://www.pugetsystems.com/labs/hpc/How-To-Install-CUDA-10-together-with-9-2-on-Ubuntu-18-04-with-support-for-NVIDIA-20XX-Turing-GPUs-1236/). In the 2nd step, change the <version> or just run the recommended command from the prompt.
+   If you need to confirm the version of your ubuntu, run lsb_release -a
+   After you install cuda10, go to /usr/local, run ls -la to show the real path of the symbolic link, cuda
+   If you can not run nvidia-smi after you install cuda10, just reboot your computer.
+   Still you need to add the cuda path to PATH and LD_LIBRARY_PATH, if they are not. To check this just run echo $PATH |grep cuda, echo $LD_LIBRARY_PATH | grep cuda.
+   
 
 6. How to solve gcc compabiltiy issue, you could change the configuration of CUDA rather than install gcc 4.9. But it is more complicated.
 
