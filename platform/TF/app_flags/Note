@@ -1,0 +1,9 @@
+Dec 4, 2019
+You compared parsing a paramter using tf.flags or parser.
+
+tf.flags
+  You don't have to pickle.dump the flags and load it when you run the code in an IDE rather than from command line.
+  Just set the default value to be the ones you pass from command line.
+
+parser.args
+  It also works without passing a value from the command line. 
