@@ -1,3 +1,7 @@
+Jan 20, 2020
+1. You installed an incompatible Nvidia driver (340) following the hint when you
+run nvidia-smi after purge the drive. But the screen black out when you reboot. So you need to lauch in a secure mode. Note that no need to press any key. The launch interface offers an options, just choose that and lauch the system. Then purge the nvidia driver you installed.
+
 1. The compability of ubuntu 16.40 with third party drivers:
    After searching GTX 1070 Ubuntu 16.04, I found this blog is very informative except without mentioning this compability issue. (https://www.jayakumar.org/linux/gtx-1070-on-ubuntu-16-04-with-cuda-8-0-and-theano/)
    This issue is because UEFI Secure Boot is enabled by default sind 16.04, so you need to disable Secure Boot or assign a certificate to the nvidia driver. (I chose the former solution).
