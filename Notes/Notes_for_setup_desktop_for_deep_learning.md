@@ -1,3 +1,9 @@
+Feb. 5, 2022
+After you install tensorflow-gpu, you can not load libcudart. Solution: install cudatoolkit=10.0.
+Could not load dynamic library 'libcudnn.so.7', download cudnn from nvidia website, then copy libcudnn.so.7.0.5 to /usr/local/cuda/lib64. Copy cudnn.h to /usr/local/cuda/include/
+
+
+
 Jan 20, 2020
 1. You installed an incompatible Nvidia driver (340) following the hint when you
 run nvidia-smi after purge the drive. But the screen black out when you reboot. So you need to lauch in a secure mode. Note that no need to press any key. The launch interface offers an options, just choose that and lauch the system. Then purge the nvidia driver you installed.
